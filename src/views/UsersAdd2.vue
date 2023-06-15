@@ -1,66 +1,73 @@
 <template>
-    <v-container>
-      <v-text-field
-        v-model="search"
-        label="Search"
-        outlined
-        dense
-        clearable
-      ></v-text-field>
-
-      <v-data-table
-        :headers="headers"
-        :items="filteredItems"
-        :search="search"
-        :items-per-page="10"
-        class="elevation-1"
-      ></v-data-table>
-    </v-container>
+  <v-table>
+    <thead>
+      <tr>
+        <th class="text-left">
+          Name
+        </th>
+        <th class="text-left">
+          Calories
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="item in desserts"
+        :key="item.name"
+      >
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+      </tr>
+    </tbody>
+  </v-table>
 </template>
-
 <script>
-import { ref, computed } from 'vue';
-
-export default {
-  setup() {
-    const search = ref('');
-    const items = [
-      { name: 'John Doe', date: '2023-05-20', location: 'New York' },
-      { name: 'Jane Smith', date: '2023-06-05', location: 'London' },
-      { name: 'Bob Johnson', date: '2023-06-10', location: 'Paris' },
-      // Add more data objects as needed
-    ];
-
-    const headers = [
-      { text: 'Name', value: 'name' },
-      { text: 'Date', value: 'date' },
-      { text: 'Location', value: 'location' },
-    ];
-
-    const filteredItems = computed(() => {
-      if (!search.value) {
-        return items;
+  export default {
+    data () {
+      return {
+        desserts: [
+          {
+            name: 'Frozen Yogurt',
+            calories: 159,
+          },
+          {
+            name: 'Ice cream sandwich',
+            calories: 237,
+          },
+          {
+            name: 'Eclair',
+            calories: 262,
+          },
+          {
+            name: 'Cupcake',
+            calories: 305,
+          },
+          {
+            name: 'Gingerbread',
+            calories: 356,
+          },
+          {
+            name: 'Jelly bean',
+            calories: 375,
+          },
+          {
+            name: 'Lollipop',
+            calories: 392,
+          },
+          {
+            name: 'Honeycomb',
+            calories: 408,
+          },
+          {
+            name: 'Donut',
+            calories: 452,
+          },
+          {
+            name: 'KitKat',
+            calories: 518,
+          },
+        ],
       }
-
-      const query = search.value.toLowerCase();
-      return items.filter((item) =>
-        item.name.toLowerCase().includes(query) ||
-        item.location.toLowerCase().includes(query)
-      );
-    });
-
-    return {
-      search,
-      headers,
-      filteredItems,
-    };
-  },
-};
-</script>
-
-<style>
-  .elevation-1 {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2),
-      0 2px 10px 0 rgba(0, 0, 0, 0.15);
+    },
   }
-</style>
+</script>

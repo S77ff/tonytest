@@ -57,15 +57,15 @@ const router = createRouter({
       component: () => import("../views/PermissionAdd.vue")
     },
 		{
-      path: "/permissionAdd",
-      name: "Permission Add",
+      path: "/permissionPlusToggles",
+      name: "Permission+",
       meta: {
         icon: "assignment_turned_in",
         label: "Toggles",
         parent: null,
         slug: "toggles"
       },
-      component: () => import("../views/PermissionAdd.vue")
+      component: () => import("../views/PermissionPlusToggles.vue")
     },
 		{
       path: "/platformAdd",

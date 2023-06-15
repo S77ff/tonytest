@@ -1,17 +1,34 @@
+
+
 <template>
-  <div>
-    <h4 class="title">{{ pageTitle }}</h4>
-    <v-text-field
-      v-model="search"
-      label="Search"
-      outlined
-    ></v-text-field>
-    <v-data-table
-      :headers="headers"
-      :items="filteredUsers"
-      :search="search"
-    ></v-data-table>
-  </div>
+    <v-app>
+    <h1> {{ pageTitle }} </h1>
+    <v-main>
+      <v-container fluid>
+        <!-- Navigation buttons -->
+        <v-row justify="center">
+          <p>________________________________________________________________________________________</p>
+        </v-row>
+      </v-container>
+        <v-card>
+          <v-card-text>
+            <div>
+              <h4 class="title">{{ pageTitle }}</h4>
+              <v-text-field
+                v-model="search"
+                label="Search"
+                outlined
+              ></v-text-field>
+              <v-data-table
+                :headers="headers"
+                :items="filteredUsers"
+                :search="search"
+              ></v-data-table>
+            </div>
+          </v-card-text>
+        </v-card>
+    </v-main>
+  </v-app>
 </template>
 
 <script>

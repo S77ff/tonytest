@@ -1,19 +1,35 @@
 
 
 <template>
-  <table class="data-table">
+
+<v-table>
     <thead>
       <tr>
-        <th>{{ headers[0].text }}</th>
-        <th>{{ headers[1].text }}</th>
-        <th>{{ headers[2].text }}</th>
-        <th>{{ headers[3].text }}</th>
-        <th>{{ headers[4].text }}</th>
-        <th>{{ headers[5].text }}</th>
+        <th class="text-left">
+          Username
+        </th>
+        <th class="text-left">
+          email
+        </th>
+        <th class="text-left">
+          Service
+        </th>
+        <th class="text-left">
+          Role
+        </th>
+        <th class="text-left">
+          Clinician
+        </th>
+        <th class="text-left">
+          Practice
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in items" :key="item.id">
+      <tr
+        v-for="item in items"
+        :key="item.name"
+      >
         <td>{{ item.username }}</td>
         <td>{{ item.email }}</td>
         <td>{{ item.service }}</td>
@@ -22,7 +38,8 @@
         <td>{{ item.practice }}</td>
       </tr>
     </tbody>
-  </table>
+  </v-table>
+        
 </template>
 
 <style>

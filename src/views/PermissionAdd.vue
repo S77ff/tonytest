@@ -2,9 +2,10 @@
   <v-form>
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="12">
           <div>
             <h4 class="title">{{ pageTitle }}</h4>
+            <p>________________________________________________________________________________________</p>
             <v-text-field v-model="name" label="Name"></v-text-field>
             <v-text-field v-model="label" label="Label"></v-text-field>
             <v-textarea label="Notes" outlined placeholder="Additional Notes"></v-textarea>
@@ -17,7 +18,7 @@
               </template>
             </v-switch>
             <v-card class="custom-box">
-              <div class="label">Create Rule2</div>
+              <div class="label">Create Rule</div>
               <div class="radio-container">
                 <div class="radio-col" v-for="(radio, index) in radioOptions" :key="index">
                   <v-radio v-model="selectedRadio" :label="radio.label" :value="radio.value"></v-radio>
@@ -35,10 +36,10 @@
               </v-row>
               <v-row>
                 <v-col cols="6">
-                  <v-select v-model="selectedVersion" :items="dropdownVersion" label="Version" outlined></v-select>
+                  <v-select v-model="selectedApplication" :items="dropdownApplication" label="Application" outlined></v-select>
                 </v-col>
                 <v-col cols="6">
-                  <v-select v-model="selectedApplication" :items="dropdownApplication" label="Application" outlined></v-select>
+                  <v-select v-model="selectedVersion" :items="dropdownVersion" label="Version" outlined></v-select>
                 </v-col>
               </v-row>
               <div class="condition-title">CONDITION TITLE?</div>
@@ -92,7 +93,7 @@ export default {
       selectedPractice: null,
       selectedUser: null,
       // Other v-model properties
-      dropdownEnvironment: ["Environment 1", "Environment 2", "Environment 3"],
+      dropdownEnvironment: ["Production", "Staging", "Pre Prod"],
       dropdownPlatform: ["Platform 1", "Platform 2", "Platform 3"],
       dropdownVersion: ["Version 1", "Version 2", "Version 3"],
       dropdownApplication: ["Application 1", "Application 2", "Application 3"],
